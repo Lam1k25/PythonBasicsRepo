@@ -1,11 +1,11 @@
-num_students = int(input("Введите количество студентов: "))
+num_students: int = int(input("Введите количество студентов: "))
 
 
-students = []
+students: list[str] = []
 
 for i in range(num_students):
-    name = input("Введите имя студента: ")
-    grades_input = input("Введите оценки через пробел: ")
+    name[str] = input("Введите имя студента: ")
+    grades_input: int = input("Введите оценки через пробел: ")
     
    
     grades_list = [int(grade) for grade in grades_input.split()]
@@ -13,13 +13,13 @@ for i in range(num_students):
     
     students.append([name, grades_list])
 
-print("\n" + "="*40)
+print("\n" + "=" * 40)
 print("Имя\t\tСредний балл")
-print("-"*40)
+print("-" * 40)
 
 
 average_grades = []
-names_list = []
+names_list: list[str] = []
 
 
 for student in students:
@@ -27,8 +27,8 @@ for student in students:
     grades = student[1]
     
  
-    total = 0
-    count = 0
+    total: int = 0
+    count: int = 0
     for grade in grades:
         total += grade
         count += 1
@@ -53,8 +53,8 @@ max_index = average_grades.index(max_avg)
 min_index = average_grades.index(min_avg)
 
 
-group_total = 0
-group_count = 0
+group_total: int = 0
+group_count: int = 0
 for avg in average_grades:
     group_total += avg
     group_count += 1
@@ -104,7 +104,7 @@ print(f"\nСтуденты с средним баллом >= 4.5: {excellent_stu
 
 
 
-all_grades = []
+all_grades: list[int] = []
 for student in students:
     all_grades.extend(student[1])
 
@@ -114,4 +114,5 @@ if all_grades:
     print(f"Все оценки (отсортированные): {all_grades}")
     print(f"Минимальная оценка в группе: {min(all_grades)}")
     print(f"Максимальная оценка в группе: {max(all_grades)}")
+
     print(f"Количество всех оценок: {len(all_grades)}")
