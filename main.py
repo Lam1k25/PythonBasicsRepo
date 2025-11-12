@@ -258,16 +258,47 @@
 # print(nums_2)
 
 
+# from typing import Any
+
+
+# def linear_search(elements: list[Any], elem: Any) -> int:
+#     for i in range(len(elements)):
+#         if elements[i] == elem:
+#             return i
+
+
+
+# if __name__ == "__main__":
+#     elements: list[Any] = [100, "hi", 3.14, "!", True]
+#     print(linear_search(elements, "!"))
 from typing import Any
 
 
 def linear_search(elements: list[Any], elem: Any) -> int:
-    for i in range(len(elements)):
-        if elements[i] == elem:
-            return i
+     for i in range(len(elements)):
+         if elements[i] == elem:
+             return i
 
+
+def binary_search(elements: list[int], elem: int) -> bool:
+    elements.sort()
+    start: int = 0
+    end: int = len(elements) - 1
+    for i in range(len(elements)):
+        mid_index: int = end - start // 2
+        if elements[mid_index] == elem:
+            return True
+        elif elements[mid_index] > elem:
+            end = mid_index - 1
+        else:
+            start = mid_index + 1
+
+    return False
 
 
 if __name__ == "__main__":
     elements: list[Any] = [100, "hi", 3.14, "!", True]
+    nums: list[int] = [100, 200, 1, 4, 15, 12, 17]
     print(linear_search(elements, "!"))
+    print(binary_search(nums, 17))
+
