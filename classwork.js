@@ -302,5 +302,167 @@ function Fibonachi(n){
 }
 console.log(Fibonachi(10))
 
+// 16.03.26
+
+//part 1
+
+// синхронная функция
+function grett(callback){
+    callback();
+}
+
+grett(() => {
+    console.log('всем привет')
+})
+
+// асинхронная функция
+setTimeout(() => {
+    console.log("wait 1 second");
+}, 1000)
+
+console.log("Этот код ждать не будет")
+
+// part 2
+
+function fetchDataFunc(callback){
+    setTimeout(() => {
+        console.log("данные долго загружаются")
+        callback("вот ваши данные");    
+}, 2000)
+}
+
+
+function display(data){
+    console.log(data);
+}
+
+fetchDataFunc(display); 
+
+// part 3
+
+function calc(a, b, oper){
+    return oper(a,b)
+}
+
+function add(x,y){
+    return x + y
+}
+
+function mult(x,y){
+    return x * y
+}
+
+console.log(calc(5, 3, add));
+console.log(calc(5,3,  mult))
+
+// part 4
+
+asyncFunc1(function(result1){
+    asyncFunc2(result1, function(result2){
+        asyncFunc3(result2, function(result3){
+            console.log("Final res:" + result3);
+        });
+    });
+});
+
+// part 5
+
+let name = "Alice";
+
+function greet(a, b, oper){
+    return oper(a, b)
+}
+
+function add(name_3, name_4){
+    return name_3 + name_4;
+}
+
+// greet(function(){
+//     console.log(name) // Alice
+// })
+console.log(greet("Artem", "Dima", add));
+
+
+// part 6
+
+function calculate(x, y, z, oper){
+    return oper(x,y,z)
+}
+
+function sum(x,y,z){
+    return x + y + z
+}
+
+function volume(x1,y1,z1){
+    return x1 * y1 * z1
+}
+
+console.log(calculate(11, 22, 33, sum));
+console.log(calculate(10, 20, 30, volume))
+
+// part 7
+
+(function(){
+    let x = 10;
+    console.log("Я выполнюсь сразу!");
+})();
+
+function print(){
+    console.log("вывод");
+}
+ print()
+
+// part 8
+
+function countdown(n){
+    if(n <= 0){
+        console.log("Start");
+        return;
+    }
+    console.log(n);
+    countdown(n - 1);
+
+}
+
+countdown(10);
+
+
+function counter(){
+    let count = 0
+    return function(){
+        count++
+        return count;
+    }
+}
+
+const count = counter()
+console.log(count())
+console.log(count())
+console.log(count())
+
+
+function memory(fn){
+    const cash = {};
+
+    return function(arg){
+        if(cash[arg] !== undefined){
+            console.log("Fetch from crash:" + cash[arg]);
+            return cash[arg];
+        }
+
+        const result = fn(arg);
+        cash[arg] = result;
+        console.log("computing process result:" + arg);
+        return arg;
+    }
+}
+function square(x){
+    return x * x;
+}
+
+const memoraizied = memory(square);
+
+console.log(memory(4))
+console.log(memory(4))mn
 
 
