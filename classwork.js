@@ -588,11 +588,9 @@ function sumDigits(n){
     return (n % 10) + sumDigits((Math.floor(n / 10)))
 }
 
-
-
+const x = cashedSumDigits(sumDigits);
+console.log(x(12345))
 console.log(sumDigits(12345))
-
-
 
 
 
