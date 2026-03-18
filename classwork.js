@@ -463,6 +463,136 @@ function square(x){
 const memoraizied = memory(square);
 
 console.log(memory(4))
-console.log(memory(4))mn
+console.log(memory(4))
+
+// 18.03.26
+// part 1
+function pow(base, exp){
+    if(exp === 0) return 1;
+    return base * pow(base, exp - 1);
+}
+console.log(pow(2, 0))
+
+// part 2
+
+function factorial(n){
+    if(n === 1) return 1; // можно и 0)
+    return n * factorial(n - 1)
+}
+console.log(factorial(5))
+
+// part 3
+
+function fib(n){
+    if(n === 1) return 1;
+    if(n === 2) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+console.log(fib(6))
+
+// part 4
+function creatUser(name){
+    let password = "qwerty"
+
+    return{
+        getName: function(){
+            return name;
+        },
+        checkPassword: function(input){
+            return input === password;
+        },
+        getPassword: function(){
+            return password
+        }
+    };
+}
+
+const user = creatUser("Bob");
+console.log(user.getName());
+console.log(user.checkPassword('123'));
+console.log(user.password);
+
+// part 5
+
+function creatUser(name){
+    let password = "qwerty"
+
+    return{
+        getName: function(){
+            return name;
+        },
+        checkPassword: function(input){
+            return input === password;
+        },
+        getPasseord: function(){
+            return password
+        }
+    };
+}
+
+const user = creatUser("Bob");
+console.log(user.getName());
+console.log(user.checkPassword('123'));
+console.log(user.password);
+
+// part 6
+
+function memory(fn){
+    const cash = {};
+
+    return function(arg){
+        if(cash[arg] !== undefined){
+            console.log("Fetch from crash:" + cash[arg]);
+            return cash[arg];
+        }
+
+        const result = fn(arg);
+        cash[arg] = result;
+        console.log("computing process result:" + arg);
+        return arg;
+    }
+}
+function factorial(n){
+    if(n === 1) return 1; 
+    return n * factorial(n - 1)
+}
+const memoraizied = memory(factorial);
+
+console.log(memoraizied(4))
+console.log(memoraizied(4))
+
+
+
+// part 7
+
+function cashedSumDigits(fn){
+    const cash = {};
+
+    return function(arg){
+        if(cash[arg] !== undefined){
+            console.log("нет такого числа" + n)
+            return;
+        }
+
+        console.log("такое число" + cash[arg])
+        const result = fn(arg);
+        cash[arg] = result;
+        console.log("computing process result:" + arg);
+        return arg;
+    }
+}
+function sumDigits(n){
+    if(n < 10){
+        return n;
+    }
+    return (n % 10) + sumDigits((Math.floor(n / 10)))
+}
+
+
+
+console.log(sumDigits(12345))
+
+
+
 
 
