@@ -592,5 +592,136 @@ const x = cashedSumDigits(sumDigits);
 console.log(x(12345))
 console.log(sumDigits(12345))
 
+// 25.03.26
+// part 1
+function process(arr){
+    resultArr = []
+    let filerder = arr.filter(num => num % 2 !== 0);
+    filerder.sort((a, b) => a - b);
+    let sum = filerder.reduce((acc, num) => acc+ num,0)
+    for(let i = 0; item.length; i++){
+        if( num % 2 !== 0){
+            resultArr.push(itens[i])
+        }
+    }
+    filerder[2] = sum
+    return filerder;
+}
+console.log(process(10,15,2,3,7,8))
+
+// part 2
+
+let str = 'hello';
+let str_2 = str.toUpperCase();
+console.log(str_2);
+
+let string = 'Пример строки';
+let string_2 = "Это тоже строка";
+let nameW = "Мир";
+let string_3 = `Привет, ${nameW}`;
+console.log(string)
+console.log(string_2)
+console.log(string_3)
+
+// part 3
+
+let text = "I have 2 apples and 10 bananas.";
+let numbers = text.match(/\d+/g);
+let sum_2 = numbers.reduce((acc,val) => acc + Number(val), 0)
+let sum = 0;
+console.log(sum_2)
+for(let number of numbers) {
+    sum += Number(number);
+}
+console.log(sum);
+
+// part 4
+
+let amdate = '12/25/2025';
+let date = amdate.split('/');
+console.log(date)
+let eudate = `${date[1]}/${date[0]}/2025`
+console.log(eudate)
+
+// part 5
+
+function dateline(amdate){
+    let date = amdate.split('/');
+    let eudate = `${date[1]}/${date[0]}/2025`;
+    return eudate
+}
+
+console.log(dateline('12/25/2025'))
+
+// part 6
+
+// \d - поиск всех чисел
+// \b - граница слова
+// [abc] - ищем символ из предложенных
+// [a-z] любой a - z
+// [A-Z] любой A - Z
+// * - ноль или один раз(совпадения)
+// ^ - начало строки
+// + - 1 или более раз
 
 
+
+let text = "Apple and Cherry is amazing fruits.";
+let wordsStartWithA = text.match(/\bA[a-z]+\b/g);
+console.log(wordsStartWithA);
+
+let text = "Apple and Cherry is amazing fruits.";
+let wordsStartWithA = text.match(/\b[aA][a-z]+\b/g);
+console.log(wordsStartWithA);
+
+let text = "+7-(800)-401-54-73";
+let result = text.replace(/\d/g, '')
+console.log(result)
+
+// part 7
+
+let human = {
+    name: "Bob"
+}
+let human2 = human;
+Object.freeze(human);
+
+// part 8
+
+let human = {
+    name: "Alice"
+}
+human.lastName = 'Ivanova'
+human.work = 'true';
+delete human.work;
+console.log(human);
+let car = {
+    brand: "Mercedes"
+};
+let local_car = Object.assign({}, car);
+local_car.brand = "Lada";
+console.log(local_car, car);
+
+const students = [
+    {
+        name: "Alice"
+    },
+    {
+        name: "Alena"
+    },
+]
+console.log(students[0].name)
+
+const carNew = {
+    name: "Mercedes",
+    coordinates:{
+        lat: 55,
+        lon: 37
+    }
+};
+console.log(carNew.coordinates.lon)
+let {
+    name: kolya,
+    welcome: function(){console.log('hello')},
+    goodbye: (text) => console.log("goodbye")
+}
