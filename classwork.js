@@ -725,3 +725,116 @@ let {
     welcome: function(){console.log('hello')},
     goodbye: (text) => console.log("goodbye")
 }
+
+// 30.03.26
+
+// part 1
+const color = {
+    blue: '###231'
+}
+
+console.log('blue' in color);
+
+let arr = [1, 2, 3]
+console.log(arr.includes(2));
+
+let obj = {'3':4};
+let arr_2 =[1, 2, obj]
+console.log(arr_2.includes(obj));
+
+arr.push(arr);
+console.log(arr);
+
+let cabinet = {
+    topbox: "passport"
+}
+Object.defineProperties(cabinet, 'topbox',{
+    writable: false,
+})
+cabinet.topbox = "Диплом";
+console.log(cabinet)
+
+
+// part 2
+
+let cabinet = {
+    topbox: "passport"
+}
+
+Object.defineProperties(cabinet, "topbox",{
+    writable: false,
+})
+cabinet.topbox = ["Диплом"];
+cabinet.topbox.push("INN");
+
+Object.defineProperties("Свидетельство о рождении");
+
+console.log(cabinet)
+
+Object.freeze(cabinet.topbox)
+
+// part 3
+
+
+let numbers = [1, 2, 3];
+let numbers_2 = [4, 5, 6];
+console.log(...numbers, ...numbers_2)
+
+const paket = {
+    fruit: 'orange',
+    candy: true
+}
+const paket_2 = {
+    fruit: "apple",
+    milk: true
+}
+allPackets = {...paket, ...paket_2}
+console.log(allPackets)
+
+function sumNumbers(first, second){
+    let result = 0;
+    for(let arg of arguments){
+        result+=arg;
+    }
+    return result;
+}
+console.log(sumNumbers(1,2,3,4))
+
+function mySum(...arg){
+    return arg.reduce((sum, val) => sum + val, 0)
+}
+console.log(mySum(1,2,3,4))
+
+let furst = 10;
+let rest = [20,30,40];
+let comb =[furst, ...rest];
+console.log(comb)
+
+const js = JSON.stringify(paket);
+console.log(JSON.stringify(paket))
+
+const string_to_obj = JSON.parse('{"fruit":"orange","candy":true}')
+console.log(string_to_obj.fruit)
+
+// part 3
+let colors = ["Red", "Blue", "Green"];
+for(let color in colors){
+    console.log(color, colors[color])
+}
+
+// part 4
+const grades = {
+    Anna: 85,
+    Boris: 70,
+    Clara: 90,
+    Bob: 1
+};
+
+for(let name of Object.entries(grades)){
+    if (name[1] > 75){
+    console.log(name)} 
+}
+
+
+// part 5
+
