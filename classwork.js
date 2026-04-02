@@ -838,3 +838,28 @@ for(let name of Object.entries(grades)){
 
 // part 5
 
+
+// 02.04.26
+
+//part 1(new file)
+let input_print = document.querySelectorAll('input');
+for(let i of input_print){
+    if(i.type == "checkbox" || i.type == "radio"){//a.id-true b.id-false 
+        console.log(i)
+    }
+    if (i.id){
+        console.log("success")
+    }
+    else{
+        console.log("id not found")
+    }
+}
+// part 2
+
+let cam = document.querySelectorAll("a");
+console.log(cam)
+for(let item of cam){
+    item.setAttribute("target", "_blank")
+    console.log(item.target)
+}
+
