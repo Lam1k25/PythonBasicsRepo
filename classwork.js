@@ -863,3 +863,126 @@ for(let item of cam){
     console.log(item.target)
 }
 
+// console.log("start");
+// alert("Всплывающее окошко");
+//document.getElementById("Здесь будет ид нужного элемента")
+
+//document.querySelectorAll("CSS селектор")
+
+//document.querySelector("CSS селектор")
+
+//console.log(form);
+
+//let myField = document.getElementById('myname');
+//console.log(myField);
+//let a = document.querySelector("h1");
+//console.log(a);
+//let b = document.querySelectorAll("option");
+//for(let item of b){
+//    console.log(item);
+//}
+
+//console.log(centrallCell.parentElement.parentElement.children)
+
+//let cam = document.querySelectorAll("a");
+//console.log(cam)
+//for(let item of cam){
+  //  item.setAttribute("target", "_blank")
+ //   console.log(item.target)
+//}
+
+//let count = 0;
+//let buttons = document.querySelectorAll("button");
+//for(let button of buttons){
+//    count += 1
+//}
+//console.log(count)
+
+//let string = document.querySelector("p");
+//console.log(string)
+
+//let divine = document.getElementById('result')
+//console.log(divine)
+
+
+//let inputs = document.querySelectorAll('input');
+//for(let item of inputs){
+//    if (!item.value){
+//        console.log(item)
+//    }
+//}
+
+// Ищем строку таблицы
+//let item = document.querySelector('td')
+
+//let my_button = document.createElement('button')
+//document.body.appendChild(my_button)
+//my_button.textContent = 'Удалялка';
+//my_button.onclick  =() => item.remove()
+//let b = document.getElementById("12")
+//my_button.onclick = () =>  b.remove()
+
+
+let button = document.createElement('button');
+document.body.appendChild(button);
+button.textContent = "дАБавить инфармейшн"
+onclick = function(){
+username.textContent = "Lam1k";
+year.textContent = "2001";
+first.textContent = "Плейбой";
+second.textContent = "Миллиардер"
+let h_3 = document.querySelectorAll("h3")
+for(let item of h_3){
+  if (item.id){
+      item.textContent = "hahahahahahahah"
+  }
+  console.log(item)
+}
+}
+
+/////// 080426
+
+const parent = document.createElement("list");
+const newitem = document.createElement("li");
+// в начало
+parent.insertBefore(newitem, parent.firstChild);
+
+const div = document.createElement("div");
+document.body.appendChild(div);
+div.style.color = "red";
+
+const parent_1 = document.getElementById("id")
+const child = parent_1.firstChild;
+parent_1.removeChild(child);
+// child no in list - error
+
+const button = document.createElement("button")
+document.body.appendChild(button)
+button.onclick = function(){
+  alert("h1")
+}
+
+
+////
+
+const input = document.getElementById("task-input");
+const button = document.getElementById("input-btn");
+const list = document.getElementById("task-list");
+
+button.onclick = function(){
+  const text = input.value
+  let el = document.createElement("li");
+  el.textContent = text;
+  console.log(text);
+  console.log(el);
+  list.appendChild(el);
+  console.log(list);
+  text.value = "";
+}
+let del = document.createElement("button");
+document.body.appendChild(del);
+del.textContent = "УДАЛИТЬ";
+del.onclick = function(){
+  list.textContent = ""
+}
+
