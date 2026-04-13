@@ -986,3 +986,62 @@ del.onclick = function(){
   list.textContent = ""
 }
 
+//// sdgdgfdgdfdrg
+//const button = document.createElement("button");
+//button.onclick = function() {console.log("вы нажали")};
+
+//button.addEventListener()
+//const parent = document.getElementById("parent");
+//const child = document.getElementById(child);
+//parent.addEventListener("click", () => console.log("parent success"))
+//child.addEventListener("click", function(){console.log("child success")})
+        //const greenDiv = document.getElementById("div");
+        //greenDiv.addEventListener("click", function(){alert("первый обработчик")
+
+        //})
+        //greenDiv.addEventListener("click", function(){
+           // console.log("второй обработчик")
+        //})
+const arr = ['parent', 'child', 'grandson'].map(id => document.getElementById(id))
+const output = document.getElementById("output");
+let capturing = false;
+let bubbling = "true";
+
+function leffa(el, phase){
+  output.innerHTML += '${phase}: ${el.id}<br>'
+}
+
+function setUp(){
+  arr.forEach(el => {
+    el.removeEventListener("click", handler, true)
+    el.removeEventListener("click", handler, false)
+    if (capturing) el.addEventListener("click", handler, true)
+    if (bubbling) el.addEventListener("click", handler, false)
+  });
+}
+  
+function handler(e){
+  const p = e.eventPhase === 1 ? 'CAPTURING': e.eventPhase === 2 ? "TARGET": "BUBBLING"
+  log(this, p);
+}
+document.getElementById("pogruzh").addEventListener("click", () => {
+  capturing = !capturing;
+  setUp()
+})
+
+document.getElementById("vsplit").addEventListener("click", () => {
+  bubbling = !bubbling;
+  setUp()
+})
+
+setUp()
+
+const button = document.querySelector("#clicker");
+let count = 0;
+button.addEventListener("click", () =>{
+  count++
+  console.log(count)
+})
+
+
+
