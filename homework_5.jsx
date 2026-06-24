@@ -1,4 +1,4 @@
-import './App.css'
+import React from 'react'
 
 let clickCount = 0
 
@@ -17,14 +17,16 @@ function handleMouseOver() {
 
 function App() {
   return (
-    <div>
-      {/* 1. Кнопка-счетчик */}
+    <div style={{ padding: '20px' }}>
+      <h2>Обработка событий в React</h2>
+
+      
       <button onClick={handleClick}>
         Нажми меня
       </button>
       <p>Количество нажатий смотрите в консоли</p>
 
-      {/* 2. Поле ввода */}
+      
       <input
         type="text"
         placeholder="Введите имя"
@@ -32,10 +34,17 @@ function App() {
       />
       <p>Смотрите имя в консоли</p>
 
-      {/* 3. Наведение мышки */}
+     
       <div
-        className="highlight"
         onMouseOver={handleMouseOver}
+        style={{
+          backgroundColor: 'lightblue',
+          padding: '20px',
+          marginTop: '20px',
+          width: '200px',
+          textAlign: 'center',
+          cursor: 'pointer'
+        }}
       >
         Наведи на меня
       </div>
@@ -43,4 +52,3 @@ function App() {
   )
 }
 
-export default App
